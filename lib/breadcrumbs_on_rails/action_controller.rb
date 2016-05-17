@@ -13,8 +13,8 @@ module BreadcrumbsOnRails
 
     included do
       extend          ClassMethods
-      helper          HelperMethods
-      helper_method   :add_breadcrumb, :breadcrumbs
+      helper          HelperMethods if respond_to?(:helper)
+      helper_method   :add_breadcrumb, :breadcrumbs if respond_to?(:helper_method)
     end
 
     protected
